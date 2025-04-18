@@ -11,11 +11,15 @@ const Books = () => {
     },[])
     
     return (
-        <div className='grid md:grid-cols-2 lg:grid-cols-3 gap-10 justify-center'>
+        <div className='my-10'>
+            <h1 className='text-center text-5xl font-bold mb-6'>Books</h1>
+            <div className='grid md:grid-cols-2 lg:grid-cols-3 gap-6  justify-items-center '>
             {
                 books.map(book => <Book key={book.bookId} book={book} ></Book>)
             }
         </div>
+        </div>
+        
     );
 };
 
