@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 const Book = ({ book }) => {
-    const {bookId, bookName, image, author, review, tags, category } = book
+    const {bookId, bookName, image, author, review, tags, category, rating, totalPages } = book
     return (
         <Link to={`/books/${bookId}`}>
             <div className="card bg-base-100 w-96 shadow-xl p-6 bg-gray-900 rounded-xl">
@@ -25,6 +25,8 @@ const Book = ({ book }) => {
                         {bookName}
                     </h2>
                     <p>By: {author}</p>
+                    <p>Rating: {rating}</p>
+                    <p>Pages: {totalPages}</p>
                     <div className="border-t-2 border-dashed "></div>
                     <div className='card-actions justify-between'>
                         <div className='badge badge-outline'>{category}</div>
