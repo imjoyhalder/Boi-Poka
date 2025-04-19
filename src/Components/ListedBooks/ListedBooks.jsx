@@ -36,6 +36,11 @@ const ListedBooks = () => {
             const sortedReadList = [...readList].sort((a,b) => a.rating-b.rating)
             setReadList(sortedReadList)
         }
+
+        if(sortType === 'publish-year'){
+            const sortedReadList = [...readList].sort((a,b) => a.yearOfPublishing - b.yearOfPublishing)
+            setReadList(sortedReadList)
+        }
     }
 
     return (
@@ -47,7 +52,7 @@ const ListedBooks = () => {
                 <ul tabIndex={0} className="dropdown-content menu bg-base-100 rounded-box z-1 w-52 p-2 shadow-sm">
                     <li onClick={()=>handleSort('Ratings')}><a>Ratings</a></li>
                     <li onClick={()=> handleSort('No of pages')}><a>Number of pages</a></li>
-                    <li><a>Published year</a></li>
+                    <li onClick={()=> handleSort('publish-year')}><a>Publisher year</a></li>
                 </ul>
             </div>
             <Tabs>
