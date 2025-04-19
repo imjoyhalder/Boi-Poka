@@ -1,5 +1,6 @@
 import React from 'react';
 import { useLoaderData, useParams } from 'react-router-dom';
+import { addToStoredReadList } from '../../Utlity/addToDB';
 
 const BookDetail = () => {
 
@@ -9,7 +10,7 @@ const BookDetail = () => {
     const book = data.find(book => parseInt(book.bookId) === parseInt(bookId))
     const { bookName, image, author, review, tags, category,yearOfPublishing, publisher, rating, totalPages } = book
 
-    const handleMarkAsRead = () =>{
+    const handleMarkAsRead = (id) =>{
         /**
          * 1. understand what to store or save => bookId
          * 2. Where to store: database
@@ -18,6 +19,7 @@ const BookDetail = () => {
          * 5. if not , then add the book to the list
          * 6. if yes, don not add the book 
          */
+        addToStoredReadList(id)
     }
 
     return (
@@ -49,7 +51,7 @@ const BookDetail = () => {
                     <p>Rating : <span className='font-bold'>{rating}</span></p>
                 </div>
                 <div className='space-x-3 pt-3'>
-                    <button className="btn btn-outline mr-4 btn-accent" onClick={handleMarkAsRead}>Mark as Read</button>
+                    <button className="btn btn-outline mr-4 btn-accent" onClick={()=>handleMarkAsRead(bookId)}>Mark as Read</button>
                     <button className="btn btn-accent">Add to WishList</button>
                 </div>
 
