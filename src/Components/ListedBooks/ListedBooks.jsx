@@ -4,6 +4,7 @@ import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
 import 'react-tabs/style/react-tabs.css';
 import { getStoredReadList } from '../../Utlity/addToDB';
 import Book from '../Book/Book';
+import NothingAdded from '../NothingAdded/NothingAdded';
 
 const ListedBooks = () => {
 
@@ -34,13 +35,11 @@ const ListedBooks = () => {
                 </TabList>
 
                 <TabPanel>
-                    <div className='my-5'>
+                    <div className='my-5 '>
                         <h2 className='text-3xl text-center my-5'>Books I read</h2>
                         <div className='grid md:grid-cols-2 lg:grid-cols-3 gap-6  justify-items-center'>
                             {   
-                               readList.length==0? <div className=''><h1 className='text-center'>
-                                Nothing added here
-                               </h1></div>: readList.map(book => <Book book={book} key={book.bookId}></Book>)
+                               readList.length==0? <NothingAdded></NothingAdded> : readList.map(book => <Book book={book} key={book.bookId}></Book>)
                             }
                         </div>
                     </div>
